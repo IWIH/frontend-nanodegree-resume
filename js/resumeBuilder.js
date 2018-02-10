@@ -239,5 +239,3 @@ function dataStringInsertion(originString, stringToInsert) {
 
     return originString.replace('%data%', stringToInsert);
 }
-
-$('#mapDiv').append(googleMap());

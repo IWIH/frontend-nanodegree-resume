@@ -105,6 +105,8 @@ Start here! initializeMap() is called when page is loaded.
 function
 initializeMap() {
 
+    $('#mapDiv').append(googleMap);
+
     var locations;
 
     var mapOptions = {
@@ -115,7 +117,7 @@ initializeMap() {
     For the map to be displayed, the googleMap var must be
     appended to #mapDiv in resumeBuilder.js.
     */
-    map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
+    map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
     /*
@@ -175,6 +177,16 @@ initializeMap() {
         var infoWindow = new google.maps.InfoWindow({
             content: name
         });
+
+        marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+        });
+
+
+
+
+
+
 
         // hmmmm, I wonder what this is about...
         google.maps.event.addListener(marker, 'click', function () {
